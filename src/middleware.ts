@@ -4,7 +4,7 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 // This is used to whitelist the routes which do not need the default authentication.
 // Basically you do need to be logged in when you are on these routes.
 
-const publicRoute = createRouteMatcher(["/","/sign-in(.*)","/sign-up(.*)"]);
+const publicRoute = createRouteMatcher(["/","/sign-in(.*)","/sign-up(.*)","/examples"]);
 
 
 export default clerkMiddleware(async (auth,request) =>{

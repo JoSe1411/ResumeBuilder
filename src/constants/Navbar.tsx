@@ -1,46 +1,48 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import Image from "next/image";
-import logo from "../assests/logo.png";
-import { Button } from "@/components/ui/button";
-import { UserButton, SignInButton, SignUpButton, SignedIn, SignedOut } from "@clerk/nextjs";
+import Link from 'next/link';
+import Image from 'next/image';
+import logo from '../assests/logo.png';
+import { Button } from '@/components/ui/button';
+import { UserButton, SignInButton, SignUpButton, SignedIn, SignedOut } from '@clerk/nextjs';
+import { CreditCard } from 'lucide-react';
+import ModeToggle from '@/constants/ThemeToggle';
 
 export default function Navbar() {
-  
   return (
     <>
-
-      <nav className="border-b bg-background sticky top-0 left-4 right-4 z-50 rounded-lg shadow-sm">
-        <div className="flex items-center p-4 justify-between ">
+      <nav className="sticky left-4 right-4 top-0 z-50 rounded-lg border-b bg-background shadow-sm">
+        <div className="flex items-center justify-between p-4">
           {/* Logo */}
-          <Link href="/" className="font-bold text-2xl md:text-3xl flex items-center">
-          <Image
-          src = {logo}
-          alt="Logo"
-          width = {35}
-          height = {30}
-          className = "rounded-full"
-          />
+          <Link href="/" className="flex items-center text-2xl font-bold md:text-3xl">
+            <Image src={logo} alt="Logo" width={35} height={30} className="rounded-full" />
             <span className="text-primary">Resume</span>Forge
           </Link>
 
           {/* Auth Buttons */}
           <div className="flex items-center space-x-4">
+            {/* Theme Toggle */}
+            <ModeToggle />
+            
             <SignedIn>
-              <UserButton 
-              appearance = {{
-                elements:{
-                  avatarBox : {
-                    height: 35,
-                    width: 35
-                  }
-                }
-              }}
-              afterSignOutUrl="/" >
+              <UserButton
+                appearance={{
+                  elements: {
+                    avatarBox: {
+                      height: 35,
+                      width: 35,
+                    },
+                  },
+                }}
+                afterSignOutUrl="/"
+              >
                 <UserButton.MenuItems>
-                     
-                  </UserButton.MenuItems>
+                   <UserButton.Link
+                      label="Billing"
+                      labelIcon={<CreditCard className="size-4"/>}    
+                      href='/billing'               
+                   />
+                </UserButton.MenuItems>
               </UserButton>
             </SignedIn>
             <SignedOut>

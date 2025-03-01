@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean-start": "fuser -k 3000/tcp || true && pnpm run dev",
+    "dev:clean": "lsof -ti :3000 | xargs kill -9 || true && pnpm run dev"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.11.3",

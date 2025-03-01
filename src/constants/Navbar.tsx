@@ -37,7 +37,11 @@ export default function Navbar() {
                   }
                 }
               }}
-              afterSignOutUrl="/" />
+              afterSignOutUrl="/" >
+                <UserButton.MenuItems>
+                     
+                  </UserButton.MenuItems>
+              </UserButton>
             </SignedIn>
             <SignedOut>
               <SignInButton mode="modal">

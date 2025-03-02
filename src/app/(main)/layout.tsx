@@ -1,9 +1,6 @@
-import Navbar from "@/constants/Navbar";
-
-export default function Layout({ children } : {children : React.ReactNode}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div>
-      <Navbar />
+    <div className="h-full flex flex-col">
       {children}
     </div>
   );

@@ -7,11 +7,14 @@ import { Button } from '@/components/ui/button';
 import { UserButton, SignInButton, SignUpButton, SignedIn, SignedOut } from '@clerk/nextjs';
 import { CreditCard } from 'lucide-react';
 import ModeToggle from '@/constants/ThemeToggle';
+import {dark} from "@clerk/themes";
+import { useTheme } from 'next-themes';
 
 export default function Navbar() {
+  const {theme} = useTheme();
   return (
     <>
-      <nav className="sticky left-4 right-4 top-0 z-50 rounded-lg border-b bg-background shadow-sm">
+      <nav className=" sticky h-16 left-4 right-4 top-0 z-50 rounded-lg border-b bg-background shadow-sm">
         <div className="flex items-center justify-between p-4">
           {/* Logo */}
           <Link href="/" className="flex items-center text-2xl font-bold md:text-3xl">
@@ -27,6 +30,7 @@ export default function Navbar() {
             <SignedIn>
               <UserButton
                 appearance={{
+                  baseTheme: theme === 'dark' ? dark : undefined,
                   elements: {
                     avatarBox: {
                       height: 35,

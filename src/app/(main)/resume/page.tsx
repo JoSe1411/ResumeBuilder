@@ -1,8 +1,22 @@
+import { PlusSquare } from "lucide-react";
+import  {Button} from '@/components/ui/button';
+import { Metadata } from "next";
+import Link from 'next/link';
+
+export const metadata : Metadata = {
+  title : "Your Resumes",
+};
+
 export default function ResumePage() {
+  
   return (
-    <div>
-      <h1>Resume</h1>
-      <p>Here is my resume!</p>
-    </div>
+    <main className = "max-w-7xl mx-auto w-full px-3 py-6 space-y-6">
+      <Button asChild className = "mx-auto flex w-fit gap-2">
+        <Link href = "/editor">
+        <PlusSquare className = "size-5" />
+        New Resume
+        </Link>
+      </Button>
+    </main>
   );
 }

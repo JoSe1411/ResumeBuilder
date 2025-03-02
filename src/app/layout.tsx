@@ -2,14 +2,14 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
-import Navbar from '@/constants/Navbar';
 import { ThemeProvider } from '@/components/theme-provider';
+import Navbar from '@/constants/Navbar';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Resume for Everyone',
+    template: '%s - ResumeForge',
     absolute: 'ResumeForge',
   },
   description:
@@ -31,8 +31,10 @@ export default function RootLayout({
           themes={['light', 'dark']}
           disableTransitionOnChange={true}>
           <ClerkProvider>
-            <Navbar />
-            <main>{children}</main>
+            <div className="flex h-screen flex-col">
+              <div className='h-16'> <Navbar /></div>
+              <main className='flex-1 overflow-auto'>{children}</main>
+            </div>
           </ClerkProvider>
         </ThemeProvider>
       </body>

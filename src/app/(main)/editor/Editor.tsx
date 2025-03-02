@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Forms from "./Form";
 
 export default function ClientSideEditor() {
   return (
@@ -14,7 +15,7 @@ export default function ClientSideEditor() {
       </header>
       <main className="flex-1 overflow-auto">
         <div className="flex h-full">
-          <div className="w-1/2 border-r border-border p-4">left</div>
+          <div className="w-1/2 border-r border-border p-4"><Forms/></div>
           <div className='w-1/2 p-4'>right</div>
         </div>
       </main>
